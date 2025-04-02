@@ -75,14 +75,14 @@ WHERE transactions_id IS NULL
 
 The following SQL queries were developed to answer specific business questions:
 
-1. **Retrieve sales made on '2022-11-05'**:
+1. **Retrieve sales made on a specific date**:
 ```sql
 SELECT * 
 FROM retail_sales
 WHERE sale_date='2022-11-05';
 ```
 
-2. **Retrieve the total transactions for the 'Clothing' category in November 2022 where the quantity sold is atleast 4**:
+2. **Filter transactions based on category, quantity and date**:
 ```sql
 SELECT * 
 FROM retail_sales
@@ -111,7 +111,7 @@ SELECT Year, Month, CEIL(avg_sale) FROM (
 WHERE Rank=1
 ```
 
-4. **Extract the top 5 customers based on the highest total sales**:
+4. **Extract the top customers based on the highest total sales**:
 ```sql
 SELECT customer_id, sum(total_sale)
 FROM retail_sales
@@ -140,7 +140,7 @@ FROM retail_sales
 GROUP BY day_timing
 ```
 
-7. **Retrieve the total sales quantity and dollar for each category**:
+7. **Calculate total sales quantity and dollar for each category**:
 ```sql
 SELECT Category, SUM(quantity) as total_quantity, sum(total_sale) as total_dollar_sale
 FROM retail_sales
